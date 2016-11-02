@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">RNGFood</string>
+
+    <string name="add">Add Location</string>
+    <string name="loc">Enter location</string>
+    <string name="random">Random Location</string>
+    <string name="back">Return to home</string>
+    <string name="delete">Delete location</string>
+</resources>
