@@ -14,7 +14,7 @@ public class Location {
     }
 
     public Location(String loc) {
-        location = loc;
+        this(-1, loc);
     }
 
     public Location(int newId, String loc) {
@@ -28,5 +28,13 @@ public class Location {
 
     public void setLocation(String newLoc) {
         location = newLoc;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 }

@@ -83,4 +83,11 @@ class DBHelper extends SQLiteOpenHelper {
         return allLocations;
     }
 
+    public void deleteAllLocations()
+    {
+        SQLiteDatabase db = this.getWritableDatabase();
+        db.delete(DATABASE_TABLE, null, null);
+        db.close();
+    }
+
 }

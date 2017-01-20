@@ -42,15 +42,6 @@
             android:text="@string/add"
             android:onClick="addLocation"/>
 
-        <Button
-            android:id="@+id/randomLocationButton"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/addLocationButton"
-            android:layout_centerHorizontal="true"
-            android:onClick="selectRandomLocation"
-            android:text="@string/random" />
-
     </RelativeLayout>
 
     <ListView

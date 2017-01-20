@@ -39,6 +39,8 @@ public class LocationListAdapter extends ArrayAdapter<Location> {
 
         locationListTextView.setText(selectedLocation.getLocation());
 
+        locationListTextView.setTag(selectedLocation);
+
         return view;
     }
 }
