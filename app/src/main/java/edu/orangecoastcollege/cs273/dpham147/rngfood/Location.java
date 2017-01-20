@@ -1,5 +1,7 @@
 package edu.orangecoastcollege.cs273.dpham147.rngfood;
 
+import android.net.Uri;
+
 /**
  * Created by Kyubey on 2016-11-01.
  */
@@ -7,6 +9,9 @@ package edu.orangecoastcollege.cs273.dpham147.rngfood;
 public class Location {
     private int id;
     private String location;
+    private Uri image;
+
+    // TODO: Getter and setter for image URI, add URI to DB, make the image chageable
 
     public Location() {
         id = -1;
