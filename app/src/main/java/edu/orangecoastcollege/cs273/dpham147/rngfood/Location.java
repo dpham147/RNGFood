@@ -11,7 +11,7 @@ public class Location {
     private String location;
     private Uri image;
 
-    // TODO: Getter and setter for image URI, add URI to DB, make the image chageable
+    // TODO:  add URI to DB, make the image chageable
 
     public Location() {
         id = -1;
@@ -25,6 +25,13 @@ public class Location {
     public Location(int newId, String loc) {
         id = newId;
         location = loc;
+        image = Uri.EMPTY;
+    }
+
+    public Location(int newId, String loc, Uri uri) {
+        id = newId;
+        location = loc;
+        image = uri;
     }
 
     public String getLocation() {
@@ -41,5 +48,13 @@ public class Location {
 
     public void setId(int id) {
         this.id = id;
+    }
+
+    public Uri getUri() {
+        return image;
+    }
+
+    public void setUri(Uri uri) {
+        image = uri;
     }
 }

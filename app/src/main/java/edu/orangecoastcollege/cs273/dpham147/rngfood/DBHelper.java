@@ -5,6 +5,7 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.net.Uri;
 
 import java.util.ArrayList;
 
@@ -13,12 +14,13 @@ class DBHelper extends SQLiteOpenHelper {
     //TASK 1: DEFINE THE DATABASE VERSION, NAME AND TABLE NAME
     private static final String DATABASE_NAME = "RNGFood";
     static final String DATABASE_TABLE = "Locations";
-    private static final int DATABASE_VERSION = 1;
+    private static final int DATABASE_VERSION = 2;
 
 
     //TASK 2: DEFINE THE FIELDS (COLUMN NAMES) FOR THE TABLE
     private static final String KEY_FIELD_ID = "id";
     private static final String FIELD_LOCATION = "name";
+    private static final String IMAGE_URI = "uri";
 
     public DBHelper(Context context){
         super (context, DATABASE_NAME, null, DATABASE_VERSION);
@@ -28,7 +30,8 @@ class DBHelper extends SQLiteOpenHelper {
     public void onCreate (SQLiteDatabase database){
         String table = "CREATE TABLE " + DATABASE_TABLE + "("
                 + KEY_FIELD_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "
-                + FIELD_LOCATION + " TEXT" + ")";
+                + FIELD_LOCATION + " TEXT, "
+                + IMAGE_URI + " TEXT" +")";
         database.execSQL (table);
     }
 
@@ -49,6 +52,7 @@ class DBHelper extends SQLiteOpenHelper {
         ContentValues values = new ContentValues();
         // values.put(KEY_FIELD_ID, newTask.getId());
         values.put(FIELD_LOCATION, newLoc.getLocation());
+        values.put(IMAGE_URI, newLoc.getUri().toString());
 
         // Step 3) Insert values into db
         db.insert(DATABASE_TABLE, null, values);
@@ -74,8 +78,9 @@ class DBHelper extends SQLiteOpenHelper {
             do {
                 int id = results.getInt(0);
                 String location = results.getString(1);
+                Uri uri = Uri.parse(results.getString(2));
 
-                allLocations.add(new Location(id, location));
+                allLocations.add(new Location(id, location, uri));
             } while (results.moveToNext());
         }
 
